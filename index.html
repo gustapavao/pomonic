@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POMONIC</title>
+    <link rel="stylesheet" href="static\styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+<!--        <nav class="menu-header">-->
+<!--            <ul>-->
+<!--                <li><a>Home</a></li>-->
+<!--                <li><a>Settings</a></li>-->
+<!--                <li><a>Account</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+    </header>
+    <div class="main-container">
+        <div class="modus">
+            <img src="static/image/brain.svg" alt="mode"> <b id="modus-text">Focus</b>
+        </div>
+        <section class="time" id="time">
+            25 00
+        </section>
+        <div class="buttons-container">
+            <button onclick="open_menu();" class="side-button"><img src="static/image/dots.svg" alt="menu"></button>
+            <button onclick="change_state();" name="paused" id="start-button"><img id="icon-start-button" src="static/image/play.svg" alt="play"></button>
+            <button onclick="fast_foward();" class="side-button"><img src="static/image/fast-forward.svg" alt="fast-forward"></button>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
