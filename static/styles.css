@@ -1,5 +1,20 @@
+:root{
+    --normal-main-color: #FFF2F2;
+    --normal-second-color: #471515;
+    --normal-third-color: #FF4C4C26;
+    --normal-bg-button-color: #FF4C4CB5;
+    --break-main-color: #4DDA6E26;
+    --break-second-color: #14401D;
+    --break-third-color: rgba(77, 218, 110, 0.15);
+    --break-bg-button-color: rgba(77, 218, 110, 0.62);
+    --long-main-color: #4DDA6E26;
+    --long-second-color: #153047;
+    --long-third-color: rgba(76, 172, 255, 0.15);
+    --long-bg-button-color: rgba(76, 172, 255, 0.62);
+}
+
 body {
-    background: #FFF2F2;
+    background: var(--normal-main-color);
 }
 
 .main-container {
@@ -9,9 +24,9 @@ body {
 }
 
 .modus{
-    color:#471515;
-    background: #FF4C4C26;
-    border: #471515 solid 2px;
+    color: var(--normal-second-color);
+    background: var(--normal-third-color);
+    border: var(--normal-second-color) solid 2px;
     padding: 8px 16px;
     gap: 8px;
     border-radius: 10px;
@@ -30,24 +45,26 @@ body {
 }
 
 .time{
-    color:#471515;
+    color: var(--normal-second-color);
     width: auto;
     height: auto;
-    max-width: 400px;
+    max-width: 280px;
     font-family: Roboto Flex;
     font-size: 256px;
     line-height: 200px;
-    align-content: center;
-    padding-left: 100px;
+
+
+    padding-left: 7%;
+    font-weight: normal;
 }
 
 .buttons-container{
     margin-top: 32px;
-    color: #471515;
+    color: var(--normal-second-color);
     align-items: center;
 }
 #start-button{
-    background: #FF4C4CB5;
+    background: var(--normal-bg-button-color);
     padding: 32px 48px;
     width: 128px;
     height: 96px;
@@ -57,7 +74,7 @@ body {
 }
 
 .side-button{
-    background: #FF4C4C26;
+    background: var(--normal-third-color);
     padding: 24px;
     border-radius: 24px;
     gap: 16px;

@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400&&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="main-header">
@@ -20,12 +21,12 @@
     </header>
     <div class="main-container">
         <div class="modus">
-            <img src="static/image/brain.svg" alt="mode"> <b id="modus-text">Focus</b>
+            <img id="modus-img" src="static/image/brain.svg" alt="mode"> <b id="modus-text">Focus</b>
         </div>
-        <section class="time" id="time">25 00</section>
+        <section class="time" id="time">01 00</section>
         <div class="buttons-container">
             <button onclick="open_menu();" class="side-button"><img src="static/image/dots.svg" alt="menu"></button>
-            <button onclick="start();" name="paused" id="start-button"><img id="icon-start-button" src="static/image/play.svg" alt="play"></button>
+            <button onclick="start();" id="start-button"><img id="icon-start-button" src="static/image/play.svg" alt="play"></button>
             <button onclick="fast_foward();" class="side-button"><img src="static/image/fast-forward.svg" alt="fast-forward"></button>
         </div>
     </div>
