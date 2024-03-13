@@ -32,6 +32,10 @@ function pause(){
     clearInterval(running);
 }
 
+function fastFoward(){
+    changeStage();
+    pause();
+}
 
 function run(){
     display.innerHTML = getTimer()
@@ -50,54 +54,47 @@ function getTimer(){
 }
 
 function changeStage(){
-    let modus_image = document.getElementById("modus-img");
-    let body = document.querySelector("body");
-    let buttonContainer = document.querySelector(".buttons-container");
-    let sideButton = document.querySelectorAll(".side-button");
-    let mainButton = document.querySelector("#start-button")
-    let modus = document.querySelector(".modus")
+
     if (actualStage === "Focus"){
         if (hadBreak){
             actualStage = "Long Break";
             seconds = 180;
             hadBreak = false;
-            modus.style.color = "var(--long-second-color)";
-            modus.style.background = "var(--long-third-color)";
-            modus.style.border = "var(--long-second-color) solid 2px";
-            body.style.background = "var(--long-main-color)";
-            buttonContainer.style.color = "var(--long-second-color)";
-            mainButton.style.background = "var(--long-bg-button-color)";
-            display.style.color = "var(--long-second-color)";
-            sideButton[0].style.background = "var(--long-third-color)";
-            sideButton[1].style.background = "var(--long-third-color)";
-            modus_image.setAttribute("src", "static/image/coffee.svg");
+            changeStyle("long")
         }else{
             actualStage = "Break";
             seconds = 120;
             hadBreak = true;
-            modus.style.color = "var(--break-second-color)";
-            modus.style.background = "var(--break-third-color)";
-            modus.style.border = "var(--break-second-color) solid 2px";
-            body.style.background = "var(--break-main-color)";
-            buttonContainer.style.color = "var(--break-second-color)";
-            mainButton.style.background = "var(--break-bg-button-color)";
-            display.style.color = "var(--break-second-color)";
-            sideButton[0].style.background = "var(--break-third-color)";
-            sideButton[1].style.background = "var(--break-third-color)";
-            modus_image.setAttribute("src", "static/image/coffee.svg");
+            changeStyle("break")
         }
     }else{
         actualStage = "Focus"
         seconds = 60;
-        modus.style.color = "var(--normal-second-color)";
-        modus.style.background = "var(--normal-third-color)";
-        modus.style.border = "var(--normal-second-color) solid 2px";
-        body.style.background = "var(--normal-main-color)";
-        buttonContainer.style.color = "var(--normal-second-color)";
-        mainButton.style.background = "var(--normal-bg-button-color)";
-        display.style.color = "var(--normal-second-color)";
-        sideButton[0].style.background = "var(--normal-third-color)";
-        sideButton[1].style.background = "var(--normal-third-color)";
-        modus_image.setAttribute("src", "static/image/brain.svg");
+       changeStyle("normal")
     }
+}
+
+function changeStyle(stage){
+    let modus_image = document.getElementById("modus-img");
+    let body = document.querySelector("body");
+    let buttonContainer = document.querySelector(".buttons-container");
+    let sideButton = document.querySelectorAll(".side-button");
+    let mainButton = document.querySelector("#start-button");
+    let modus = document.querySelector(".modus");
+    let modus_text = document.querySelector("#modus-text");
+
+    let icon = stage === "normal" ? "brain" : "coffee";
+    let modusText = stage === "normal" ? "Focus" : "Break";
+
+    modus_text.innerHTML = `${modusText}`;
+    modus.style.color = `var(--${stage}-second-color)`;
+    modus.style.background = `var(--${stage}-third-color)`;
+    modus.style.border = `var(--${stage}-second-color) solid 2px`;
+    body.style.background = `var(--${stage}-main-color)`;
+    buttonContainer.style.color = `var(--${stage}-second-color)`;
+    mainButton.style.background = `var(--${stage}-bg-button-color)`;
+    display.style.color = `var(--${stage}-second-color)`;
+    sideButton[0].style.background = `var(--${stage}-third-color)`;
+    sideButton[1].style.background = `var(--${stage}-third-color)`;
+    modus_image.setAttribute("src", `static/image/${icon}.svg`);
 }
