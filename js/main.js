@@ -1,4 +1,7 @@
 stage = document.querySelector('#start-button')["name"];
+console.log(stage)
+console.log(stage.startsWith("paused"));
+
 switch (stage){
     case "paused":
         var defaultTime = 25;
@@ -16,6 +19,7 @@ switch (stage){
         var defaultTime = 25;
         break;
 }
+console.log(defaultTime)
 let time = defaultTime * 60
 const countHTML = document.getElementById("time");
 
@@ -23,8 +27,6 @@ function change_state() {
     let actualState = document.querySelector('#start-button');
     let modus = document.getElementById("modus-text");
     if (running){
-
-    }else {
         if (actualState["name"] === "paused") {
             actualState.setAttribute("name", "playing");
             modus.innerHTML = "Focus";
@@ -43,11 +45,14 @@ function change_state() {
             modus.innerHTML = "Long Break";
             setInterval(updateTime, 1000)
         }
+    }else {
+
     }
 }
 
 function running(){
     let mainButton = document.querySelector("#start-button");
+    return mainButton["name"].startsWith("paused");
 }
 
 function updateTime(){
