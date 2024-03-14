@@ -3,6 +3,7 @@ var display = document.querySelector(".time");
 var seconds = convertToSeconds(display);
 var actualStage = document.querySelector("#modus-text").innerHTML
 var hadBreak = false;
+var menu = document.querySelector(".menu")
 
 
 function convertToSeconds(element){
@@ -94,4 +95,14 @@ function changeStyle(stage){
     sideButton[0].style.background = `var(--${stage}-third-color)`;
     sideButton[1].style.background = `var(--${stage}-third-color)`;
     modus_image.setAttribute("src", `static/image/${icon}.svg`);
+}
+
+function openMenu(){
+    menu.style.opacity = 1;
+    menu.style.pointerEvents = "auto";
+}
+
+function closeWindow(){
+    menu.style.opacity = 0;
+    menu.style.pointerEvents = "none";
 }

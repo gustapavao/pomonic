@@ -25,9 +25,12 @@
         </div>
         <section class="time" id="time">01 00</section>
         <div class="buttons-container">
-            <button onclick="open_menu();" class="side-button"><img src="static/image/dots.svg" alt="menu"></button>
+            <button onclick="openMenu();" class="side-button"><img src="static/image/dots.svg" alt="menu"></button>
             <button onclick="start();" id="start-button"><img id="icon-start-button" src="static/image/play.svg" alt="play"></button>
             <button onclick="fastFoward();" class="side-button"><img src="static/image/fast-forward.svg" alt="fast-forward"></button>
+        </div>
+        <div class="tasks">
+            <button onclick="addTask();" class="add-task"><img id="plus-image" src="static/image/plus.svg" alt=""></button>
         </div>
         <div class="menu">
             <div class="dark-mode">
@@ -37,14 +40,21 @@
             </div>
             <div class="focus-length">
                 <b class="settings-text">Focus Length</b>
-                <input type="text" inputmode="numeric" id="focusl" pattern="[0-9]+">
+                <input type="text" inputmode="numeric" id="focusl" prefix="25" pattern="[0-9]+">
             </div>
             <div class="break-length">
                 <b class="settings-text">Break Length</b>
-                <input type="text" inputmode="numeric" id="focusl" pattern="[0-9]+">
+                <input type="text" inputmode="numeric" id="break" prefix="5" pattern="[0-9]+">
             </div>
-
+            <div class="break-length">
+                <label class="settings-text">Long Break Length</label>
+                <input type="text" inputmode="numeric" id="longbreak" prefix="15" pattern="[0-9]+">
+            </div>
+            <div class="button-ok">
+                <button onclick="closeWindow();" id="button-ok"><span>OK</span></button>
+            </div>
         </div>
+
     </div>
     <script src="js/script.js"></script>
 </body>
