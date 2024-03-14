@@ -4,9 +4,6 @@ var seconds = convertToSeconds(display);
 var actualStage = document.querySelector("#modus-text").innerHTML
 var hadBreak = false;
 
-let sideButton = document.querySelectorAll(".side-button");
-console.log(sideButton)
-
 
 function convertToSeconds(element){
     let minutes = element.innerHTML.split(" ")

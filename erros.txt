@@ -1,1 +1,12 @@
 1 - Everytime tha stage changes I got an "undefined". Until now, I do not know how to fix it.
+
+2 - It is being a little hard to make the settings windows. I am wondering right now about how can I make it but it too late right now.
+(
+    Maybe I can define an opacity 0 to the menu and add on JS a function to add a class on the menu and remove when click on "x"
+    On css, if have the class opacity = 1, else = 0;
+)
+
+Some ideas I cannot forget:
+- remove the blue on input number : focus
+- transition opening the window from the menu button
+- add input text -> "What I have to do?" -> build a task list below the pomodoro -> sync task list to google tasks (it is just an idea, I do not know how to do it).
