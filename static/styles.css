@@ -13,6 +13,15 @@
     --long-bg-button-color: rgba(76, 172, 255, 0.62);
 }
 
+#logo {
+    color: var(--normal-second-color);
+    /* border: 1px solid var(--normal-second-color); */
+    text-shadow: none;
+    margin-bottom: 100px;
+    font-family: 'Kaushan Script';
+    font-size: 52px;
+}
+
 body {
     background: var(--normal-main-color);
 }
@@ -53,16 +62,13 @@ body {
     font-family: Roboto Flex;
     font-size: 256px;
     line-height: 200px;
-
-
-    padding-left: 7%;
     font-weight: normal;
+    text-align: center;
 }
 
 .buttons-container{
     margin-top: 32px;
     color: var(--normal-second-color);
-    align-items: center;
 }
 #start-button{
     background: var(--normal-bg-button-color);

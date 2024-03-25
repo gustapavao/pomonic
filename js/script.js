@@ -2,8 +2,10 @@ var running;
 var display = document.querySelector(".time");
 var seconds = convertToSeconds(display);
 var actualStage = document.querySelector("#modus-text").innerHTML
-var hadBreak = false;
+var hadBreak;
 var menu = document.querySelector(".menu")
+var longBreaktime;
+var breaktime;
 
 
 function convertToSeconds(element){
@@ -18,7 +20,7 @@ function start(){
     playButton.setAttribute("onclick", "pause();");
     iconPlayButton.setAttribute("src", "static/image/pause.svg");
     display.style.fontWeight = "bold";
-    running = setInterval(run, 100);
+    running = setInterval(run, 1000);
 }
 
 function pause(){
@@ -42,7 +44,9 @@ function run(){
 
 function getTimer(){
     let minutes = (seconds/60).toString().split(".")[0]
-    let displayMinutes = minutes % 60 < 10 ? "0" + minutes % 60 : seconds % 60;
+    console.log(minutes)
+    let displayMinutes = minutes < 10 ? "0" + minutes : minutes;
+    console.log("display", displayMinutes)
     let displaySeconds = seconds % 60 < 10 ? "0" + seconds % 60 : seconds % 60;
     if (displayMinutes.toString() === "00" && displaySeconds.toString() === "00"){
         changeStage();
@@ -52,23 +56,22 @@ function getTimer(){
 }
 
 function changeStage(){
-
     if (actualStage === "Focus"){
         if (hadBreak){
             actualStage = "Long Break";
-            seconds = 180;
+            seconds = 15 * 60;
             hadBreak = false;
-            changeStyle("long")
+            changeStyle("long");
         }else{
             actualStage = "Break";
-            seconds = 120;
+            seconds = 5*60;
             hadBreak = true;
-            changeStyle("break")
+            changeStyle("break");
         }
     }else{
-        actualStage = "Focus"
-        seconds = 60;
-       changeStyle("normal")
+        actualStage = "Focus";
+        seconds = 25 * 60;
+        changeStyle("normal");
     }
 }
 
@@ -80,10 +83,12 @@ function changeStyle(stage){
     let mainButton = document.querySelector("#start-button");
     let modus = document.querySelector(".modus");
     let modus_text = document.querySelector("#modus-text");
+    let logo = document.querySelector("#logo");
 
     let icon = stage === "normal" ? "brain" : "coffee";
     let modusText = stage === "normal" ? "Focus" : "Break";
 
+    logo.style.color = `var(--${stage}-second-color)`;
     modus_text.innerHTML = `${modusText}`;
     modus.style.color = `var(--${stage}-second-color)`;
     modus.style.background = `var(--${stage}-third-color)`;
@@ -97,12 +102,18 @@ function changeStyle(stage){
     modus_image.setAttribute("src", `static/image/${icon}.svg`);
 }
 
-function openMenu(){
-    menu.style.opacity = 1;
-    menu.style.pointerEvents = "auto";
-}
+// function openMenu(){
+//     menu.style.opacity = 1;
+//     menu.style.pointerEvents = "auto";
+// }
 
-function closeWindow(){
-    menu.style.opacity = 0;
-    menu.style.pointerEvents = "none";
-}
+// function closeWindow(){
+//     menu.style.opacity = 0;
+//     menu.style.pointerEvents = "none";
+//     if (document.querySelector("#focusl") != 25){
+//         seconds = document.querySelector("#focusl")
+//         console.log(seconds)
+//     }
+
+
+// }
