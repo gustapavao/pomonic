@@ -6,6 +6,12 @@ var hadBreak;
 var menu = document.querySelector(".menu")
 var longBreaktime;
 var breaktime;
+var turns = 0;
+
+const title = "Parabénsss";
+const msg = "Vamos para mais um";
+const icon = "static/image/notification_icon.svg";
+const song = "static/image/notification.mp3";
 
 
 function convertToSeconds(element){
@@ -55,7 +61,31 @@ function getTimer(){
     }
 }
 
+function notifyMe() {
+    if (!("Notification" in window)) {
+      alert("This browser does not support Desktop notifications");
+    }
+    if (Notification.permission === "granted") {
+      callNotify(title, msg, icon);
+      return;
+    }
+    if (Notification.permission !== "denied") {
+      Notification.requestPermission((permission) => {
+        if (permission === "granted") {
+          callNotify(title, msg, icon);
+        }
+      });
+      return;
+    }
+}
+
+function callNotify(title, msg, icone) {
+    new Notification(title, { body: msg, icon: icone });
+    new Audio(song).play();
+}
+
 function changeStage(){
+    notifyMe();
     if (actualStage === "Focus"){
         if (hadBreak){
             actualStage = "Long Break";
@@ -64,13 +94,14 @@ function changeStage(){
             changeStyle("long");
         }else{
             actualStage = "Break";
-            seconds = 5*60;
+            seconds = 1*60;
             hadBreak = true;
             changeStyle("break");
         }
     }else{
         actualStage = "Focus";
         seconds = 25 * 60;
+        turns ++;
         changeStyle("normal");
     }
 }
