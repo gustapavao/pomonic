@@ -4,9 +4,12 @@ var seconds = convertToSeconds(display);
 var actualStage = document.querySelector("#modus-text").innerHTML
 var hadBreak;
 var menu = document.querySelector(".menu")
+var setedtime;
 var longBreaktime;
 var breaktime;
 var turns = 0;
+var logo
+
 
 const title = "Parabénsss";
 const msg = "Vamos para mais um";
@@ -89,18 +92,18 @@ function changeStage(){
     if (actualStage === "Focus"){
         if (hadBreak){
             actualStage = "Long Break";
-            seconds = 15 * 60;
+            seconds = longBreaktime * 60;
             hadBreak = false;
             changeStyle("long");
         }else{
             actualStage = "Break";
-            seconds = 1*60;
+            seconds = breaktime * 60;
             hadBreak = true;
             changeStyle("break");
         }
     }else{
         actualStage = "Focus";
-        seconds = 25 * 60;
+        seconds = setedtime * 60;
         turns ++;
         changeStyle("normal");
     }
@@ -133,18 +136,26 @@ function changeStyle(stage){
     modus_image.setAttribute("src", `static/image/${icon}.svg`);
 }
 
-// function openMenu(){
-//     menu.style.opacity = 1;
-//     menu.style.pointerEvents = "auto";
-// }
+function openMenu(){
+    menu.style.opacity = 1;
+    menu.style.pointerEvents = "auto";
+}
 
-// function closeWindow(){
-//     menu.style.opacity = 0;
-//     menu.style.pointerEvents = "none";
-//     if (document.querySelector("#focusl") != 25){
-//         seconds = document.querySelector("#focusl")
-//         console.log(seconds)
-//     }
-
-
-// }
+function closeWindow(){
+    menu.style.opacity = 0;
+    menu.style.pointerEvents = "none";
+    let selectedmin = document.getElementById("focusl").value;
+    let selectedbr = document.getElementById("break").value;
+    let selectedlbr = document.getElementById("longbreak").value;
+    if (selectedmin !== 25){
+       seconds = Number(selectedmin) * 60;
+       setedtime = Number(selectedmin);
+       breaktime = Number(selectedbr);
+       longBreaktime = Number(selectedlbr);
+    } else if(selectedbr !== 5){
+        breaktime = Number(selectedbr);
+        longBreaktime = Number(selectedlbr);
+    } else if(selectedlbr !== 15){
+        longBreaktime = Number(selectedlbr);
+    }
+}
