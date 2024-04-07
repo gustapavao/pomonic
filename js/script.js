@@ -8,7 +8,7 @@ var setedtime;
 var longBreaktime;
 var breaktime;
 var turns = 0;
-var logo
+var innnerhtmlturn = document.querySelector(".turns")
 
 
 const title = "Parabénsss";
@@ -106,6 +106,7 @@ function changeStage(){
         seconds = setedtime * 60;
         turns ++;
         changeStyle("normal");
+        innnerhtmlturn.innerHTML = `Você já fez ${turns} tempos`
     }
 }
 

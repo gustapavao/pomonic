@@ -9,4 +9,6 @@
 Some ideas I cannot forget:
 - remove the blue on input number : focus
 - transition opening the window from the menu button
+
+NEXT TASK:
 - add input text -> "What I have to do?" -> build a task list below the pomodoro -> sync task list to google tasks (it is just an idea, I do not know how to do it).
