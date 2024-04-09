@@ -92,12 +92,20 @@ function changeStage(){
     if (actualStage === "Focus"){
         if (hadBreak){
             actualStage = "Long Break";
-            seconds = longBreaktime * 60;
+            if (longBreaktime){
+                seconds = longBreaktime * 60;
+            }else{
+                seconds = 15 * 60;
+            }
             hadBreak = false;
             changeStyle("long");
         }else{
             actualStage = "Break";
-            seconds = breaktime * 60;
+            if (breaktime){
+                seconds = breaktime * 60;
+            }else{
+                seconds = 5 * 60
+            }
             hadBreak = true;
             changeStyle("break");
         }
